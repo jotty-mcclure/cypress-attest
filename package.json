@@ -1,7 +1,7 @@
 {
   "name": "cypress-attest",
   "version": "0.1.0",
-  "description": "An integration of Attest for the Cypress testing tool",
+  "description": "An integration of Attest for the Cypress testing tool.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,7 +14,7 @@
   "license": "ISC",
   "peerDependencies": {
     "attest-node": "^2.8.0",
-    "cypress": "^3.1.1",
-    "attest-reporter": "^2.8.0"
+    "attest-reporter": "^2.8.0",
+    "cypress": "^3.1.1"
   }
 }
