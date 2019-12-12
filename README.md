@@ -1,6 +1,8 @@
 # Cypress-attest
 Cypress-attest is an integration of Worldspace Attest for the Cypress testing tool.
 
+This project would not be possible without the crew that made [cypress-axe](https://www.npmjs.com/package/cypress-axe). Huge thanks to them for guiding the way. Cypress-attest is a clone/fork, but replaces the axe-core tool with Worldspace Attest.
+
 ## Requirements
 * Worldspace Attest (attest-node & attest-reporter)
 * Cypress
