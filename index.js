@@ -23,20 +23,39 @@ Cypress.Commands.add('checkA11y', (reporter={}, context, options) => {
             );
         })
         .then((results) => {
-            cy.task('logResults', {
+            if ( !reporter ) return cy.wrap(results.violations, { log: false });
+
+            return cy.task('logResults', {
                 reportName: reporter.reportName || '',
                 reportDirectory: reporter.directory || './cy-a11y-results',
                 pageName: reporter.scopeName || '',
                 results: results
-            }).then(reportPath => {
-                const violations = results.violations;
-
-                assert.equal(
-                    violations.length,
-                    0,
-                    `${violations.length} accessibility violation${violations.length === 1 ? '' : 's'} ${violations.length === 1 ? 'was' : 'were'} detected.\n\nReport: file://${reportPath}`
-                );
+            }, { log: false }).then(reportPath => {
+                Cypress.log({
+                    name: 'A11y Report',
+                    message: `A report of the accessibility findings is available here: file://${reportPath}`
+                });
+                return cy.wrap(results.violations, { log: false });
             });
+        })
+        .then((violations) => {
+            if (violations.length) {
+                cy.wrap(violations, { log: false }).each(v => {
+                    Cypress.log({
+                        name: 'a11y error!',
+                        consoleProps: () => v,
+                        message: `${v.id} on ${v.nodes.length} Node${v.nodes.length === 1 ? '' : 's'}`
+                    });
+                })
+            }
+            return cy.wrap(violations, { log: false });
+        })
+        .then(violations => {
+           assert.equal(
+               violations.length,
+               0,
+               `${violations.length} accessibility violation${violations.length === 1 ? '' : 's'} ${violations.length === 1 ? 'was' : 'were'} detected.`
+           );
         });
 })
 
