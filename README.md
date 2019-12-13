@@ -5,6 +5,7 @@ This project would not be possible without the crew that made [cypress-axe](http
 
 ## Requirements
 * Worldspace Attest (attest-node & attest-reporter)
+    * :warning: Attest requires a license to use. [Read more](https://www.deque.com/tools/worldspace-attest/) or [contact the Deque team](https://www.deque.com/company/contact/) for more detail.
 * Cypress
 
 ## Installation
@@ -59,6 +60,14 @@ cy.checkA11y(
         directory: 'cyAccessibilityReports', //folder to save reports to, default: cy-a11y-results
     },
     'form#login-form' //the selector for the scope you want to test.    
+)
+```
+
+You can also skip the reporting output entirely by providing `false` in place of the reporting options object.
+```
+cy.checkA11y(
+    false,
+    'form#login-form' //the selector for the scope you want to test.
 )
 ```
 
