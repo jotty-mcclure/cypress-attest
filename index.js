@@ -33,7 +33,12 @@ Cypress.Commands.add('checkA11y', (reporter={}, context, options) => {
             }, { log: false }).then(reportPath => {
                 Cypress.log({
                     name: 'A11y Report',
-                    message: `A report of the accessibility findings is available here: file://${reportPath}`
+                    message: `A report with the accessibility findings has been created! View console for the location.`,
+                    consoleProps: () => {
+                        return {
+                            message: `A report of the accessibility findings is available here: file://${reportPath}`
+                        }
+                    },
                 });
                 return cy.wrap(results.violations, { log: false });
             });
