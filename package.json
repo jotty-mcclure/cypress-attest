@@ -1,6 +1,6 @@
 {
   "name": "cypress-attest",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "An integration of Worldspace Attest for the Cypress testing tool.",
   "main": "index.js",
   "scripts": {
@@ -13,8 +13,8 @@
   },
   "license": "ISC",
   "peerDependencies": {
-    "attest-node": "^2.8.0",
-    "attest-reporter": "^2.8.0",
+    "@deque/attest-node": "^2.10.0",
+    "@deque/attest-reporter": "^2.10.0",
     "cypress": "^3.1.1"
   }
 }
