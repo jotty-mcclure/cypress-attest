@@ -1,5 +1,5 @@
 const path = require('path');
-const AttestReporter = require('attest-reporter').default;
+const AttestReporter = require('@deque/attest-reporter').default;
 
 module.exports = {
 	logResults: ({
