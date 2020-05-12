@@ -13,8 +13,8 @@
   },
   "license": "ISC",
   "peerDependencies": {
-    "@deque/attest-node": "^2.10.3",
-    "@deque/attest-reporter": "^2.10.3",
+    "@deque/attest-node": "^2.11.1",
+    "@deque/attest-reporter": "^2.11.1",
     "cypress": "^3.1.1"
   }
 }
