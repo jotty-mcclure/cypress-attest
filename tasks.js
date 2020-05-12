@@ -4,16 +4,15 @@ const AttestReporter = require('@deque/attest-reporter').default;
 module.exports = {
 	logResults: ({
 		reportName='AccessibilityReport',
-		reportDirectory,
+		reportDirectory=`./cy-a11y-results`,
 		pageName='',
 		results
 	}) => {
 		return new Promise(resolve => {
 			let reporter = new AttestReporter(reportName, reportDirectory);
 			let specificName = `${pageName}-${Date.now()}`;
-			let outputPath = path.resolve(
-				`${__dirname}`,
-				`../../`,
+			let HtmlOutputPath = path.resolve(
+				process.cwd(),
 				reportDirectory,
 				`${reportName}-${specificName}`
 			);
@@ -21,7 +20,7 @@ module.exports = {
 			reporter.logTestResult(specificName, results);
 
 			reporter.buildHTML(reportDirectory).then(() => {
-				return resolve(encodeURI(`${outputPath}.html`));
+				return resolve(encodeURI(`${HtmlOutputPath}.html`));
 			});
 		});
 	},
