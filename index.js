@@ -27,7 +27,7 @@ Cypress.Commands.add('checkA11y', (reporter={}, context, options) => {
 
             return cy.task('logResults', {
                 reportName: reporter.reportName || '',
-                reportDirectory: reporter.directory || './cy-a11y-results',
+                reportDirectory: reporter.directory,
                 pageName: reporter.scopeName || '',
                 results: results
             }, { log: false }).then(reportPath => {
