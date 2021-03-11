@@ -1,3 +1,9 @@
+# :warning: THIS REPOSITORY HAS BEEN DEPRECATED! :warning:
+
+[axe DevTools Enterprise](https://www.deque.com/axe/devtools/) has an officially supported Cypress integration. Please use that instead. This repository is no longer actively maintained.
+
+----
+
 # Cypress-attest
 Cypress-attest is an integration of Worldspace Attest for the Cypress testing tool.
 
